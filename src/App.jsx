@@ -8,7 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 
 // Components
-import Nav from "./components/Nav/nav";
+import Nav from "./components/Nav/Nav";
 
 //css
 import './App.css'
