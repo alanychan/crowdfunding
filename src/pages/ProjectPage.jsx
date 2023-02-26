@@ -29,7 +29,7 @@ function ProjectPage() {
         const res = await fetch(
           `${import.meta.env.VITE_API_URL}projects/${id}`
         );
-        console.log(res);
+        //console.log(res);
         const data = await res.json();
         setProject(data);
         } catch (err) {
