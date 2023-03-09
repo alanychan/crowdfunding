@@ -10,6 +10,7 @@ function HomePage() {
   //State
   //projectList stores the variables
   //setProjectList set the state
+  const authToken = window.localStorage.getItem("token");
   const [projectList, setProjectList] = useState([]);
 
   // useEffect(() => {
@@ -27,8 +28,8 @@ function HomePage() {
 
 
   useEffect( () => {
-    console.log(import.meta.env.VITE_API_URL);
-    
+    console.log('*import.meta.url*', import.meta.env.VITE_API_URL);
+
     const fetchProjectList = async () => {
       try {
         const res = await fetch(
@@ -47,7 +48,7 @@ function HomePage() {
 
   return (
       <div>
-        <h1>Crowdfund for our future!</h1>
+        <h1>Reduce Farts * Reduce Methane Emissions * Save our Planet!</h1>
         <div id="project-list">
           {projectList.map((project, key) => {
             return <ProjectCard key={key} projectData={project} />;

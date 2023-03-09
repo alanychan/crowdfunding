@@ -9,6 +9,7 @@ function LoginForm() {
     const [credentials, setCredentials] = useState({
         username: "",
         password: "",
+        isSuperUser: "",
     });
 
     console.log(credentials);
