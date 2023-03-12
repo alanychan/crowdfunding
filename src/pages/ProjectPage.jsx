@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PledgeForm from "../components/PledgeForm/PledgeForm"; //Import pledge form in here
 
+
 //Dummy Data
 // import { oneProject } from "../data";
 
@@ -23,6 +24,15 @@ function ProjectPage() {
   //   });
   // }, []);
 
+  const capitalizeFirstLowercaseRest = str => {
+    return (
+      str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+    );
+  };
+
+  const capitalizeFirst = str => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
 
   useEffect( () => {
     const fetchProject = async () => {
@@ -45,24 +55,36 @@ function ProjectPage() {
   // console.log(projectData.pledges)
 
   return (
-    <div>
-      <h2>Created by: {project.owner}</h2>
-      <h2>{project.title}</h2>
-      <h3>{project.description}</h3>
-      <h3>Created at: {date.toLocaleDateString(undefined, options)}</h3>
-      <h3>{`Status: ${project.is_open}`}</h3>
-      <h3>Pledges:</h3>
-      <ul>
-        {project.pledges.map((pledgeData, key) => {
-          return (
-            <li key={key}>
-             {pledgeData.amount} from  {pledgeData.supporter ? pledgeData.supporter : "Anonymous"}
-            </li>
-          );
-        })}
-      </ul>
-      <PledgeForm projectId={project.id}/>
+    <>
+    <div className="wrapper">
+      <div className="grids top">
+      <div className="grid-6 grid">
+          <div className="slides">
+            <h2>{project.title}</h2>
+            <p>{project.description}</p>
+            <img src={project.image} />
+            <p>Project owner: {project.owner} on {date.toLocaleDateString(undefined, options)}</p>
+            {/* <h3>{`Status: ${project.is_open}`}</h3> */}
+          </div>
+        </div>
+        <div className="grid-10 grid">
+          <div className="slides">
+            <h2>Pledges:</h2>
+            <ul>
+              {project.pledges.map((pledgeData, key) => {
+                return (
+                  <li key={key}>
+                  {pledgeData.amount} from  {capitalizeFirst(pledgeData.supporter ? pledgeData.supporter : "Anonymous")}
+                  </li>
+                );
+              })}
+            </ul>
+            <PledgeForm projectId={project.id}/>
+          </div>
+        </div>
+      </div>
     </div>
+    </>
   );
 }
 

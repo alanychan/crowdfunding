@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "./ProjectCard.css";
 
 function ProjectCard(props) {
   const { projectData } = props;
@@ -8,7 +7,7 @@ function ProjectCard(props) {
     <>
     <div className="wrapper">
     <div className="grids top">
-      <div className="grid-10 grid">
+      <div className="grid-13 grid">
         <div className="slides">
             <img src={projectData.image} />
             <h2>{projectData.title}</h2>

@@ -6,7 +6,7 @@ html {
   /* background: rgb(227,249,172);
   background: radial-gradient(circle, rgba(227,249,172,1) 0%, rgba(165,193,0,1) 100%); */
   content: "";
-  background-image: url("./public/photo-credit-leon-ephraim-unsplash.jpg");
+  background-image: url("../public/photo-credit-leon-ephraim-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   /* opacity: 0.95; */

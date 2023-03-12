@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import "./LoginForm.css";
-
 
 function LoginForm() {
 
@@ -75,7 +73,8 @@ function LoginForm() {
               <div className="login">
                 {/* <input type="checkbox" name="remember" className="checkbox" />
                 <span className="remember"> Remember Me</span> */}
-                <input type="submit" name="login" value="login"/>
+                {/* <input type="submit" name="login" value="login"/> */}
+                <button type="submit">Login</button>
                 <a href="signUp">Sign Up</a>
               </div>
             </form>

@@ -15,9 +15,10 @@ Most frameworks rely on class="end" or similar to remove the margin from the las
 We also allow you to use grid items as stand alone columns or in a series of columns. To use a series just wrap them all in <div class="grids">...</div>
 */
 .grids {
+	display: flex;
 	max-width: 1120px;
 	clear: both;
-	margin: 0 0 0 -2.679%;
+	/* margin: 0 0 0 -2.679%; */
 	list-style: none;
 	/* So we can make grids out of lists. */
 }
