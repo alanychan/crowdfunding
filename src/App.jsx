@@ -11,7 +11,10 @@ import AdminPage from "./pages/AdminPage";
 import Nav from "./components/Nav/Nav";
 
 //css
-import './App.css'
+import './css/grid.css';
+import './App.css';
+
+//State
 import { useState } from "react";
 
 
