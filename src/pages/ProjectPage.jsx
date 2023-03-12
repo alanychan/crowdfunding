@@ -46,6 +46,7 @@ function ProjectPage() {
 
   return (
     <div>
+      <h2>Created by: {project.owner}</h2>
       <h2>{project.title}</h2>
       <h3>{project.description}</h3>
       <h3>Created at: {date.toLocaleDateString(undefined, options)}</h3>

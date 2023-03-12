@@ -1,3 +1,28 @@
+html {
+
+  /* background: rgb(227,249,172);
+  background: radial-gradient(circle, rgba(227,249,172,1) 0%, rgba(165,193,0,1) 100%); */
+
+}
+
+body {
+
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.5em;
+  width: 100%;
+  display: table;
+
+}
+
+.wrapper{
+	max-width:1080px;
+	margin:0 auto;
+	padding:1.5em 1em;
+}
+
 #project-list {
   display: grid;
   grid-template-columns: 30% 30% 30%;

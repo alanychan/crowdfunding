@@ -47,7 +47,8 @@ function HomePage() {
 
 
   return (
-      <div>
+      <div className="wrapper">
+      <a href="/" id="logo"><img src="./public/breathe_fresh_air.jpeg" alt=""></img></a>
         <h1>Reduce Farts * Reduce Methane Emissions * Save our Planet!</h1>
         <div id="project-list">
           {projectList.map((project, key) => {
