@@ -5,40 +5,39 @@ html {
 
   /* background: rgb(227,249,172);
   background: radial-gradient(circle, rgba(227,249,172,1) 0%, rgba(165,193,0,1) 100%); */
+  color: #1234EF;
+  /*#5c5c5c; */
   content: "";
-  background-image: url("../public/photo-credit-leon-ephraim-unsplash.jpg");
+  background-image: url("../public/peek-a-boo-cow.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  /* opacity: 0.95; */
+  opacity: 0.85;
   font-family: Arial, sans-serif;
-  color: #5c5c5c;
+  font-size: calc(14px + 0.390625vw);
 }
 
-body {
 
+body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5em;
   width: 100%;
   display: table;
-
 }
 
 .wrapper {
+  /* display: flex;
+  flex-flow: row wrap; */
   max-width: 1080px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   padding: 1.5em 1em;
 }
 
-#project-list {
-  display: grid;
-  grid-template-columns: 30% 30% 30%;
-  column-gap: 10px;
-  row-gap: 10px;
-}
-
+/* .wrapper>* {
+  flex: 1 100%;
+} */
 
 #footer {
   border-radius: 10px;
@@ -118,7 +117,7 @@ h6 {
 }
 
 .intro {
-  padding: 10px 0;
+  padding: 5px 0 0 20px;
   color: #999;
 }
 
@@ -138,3 +137,44 @@ h6 {
   letter-spacing: -2px;
   padding-right: 15px;
 }
+
+/* 
+@media (min-width: 721px) and (max-width: 960px) {
+  #logo {
+    margin: 0 auto 1em;
+    width: 100%;
+  }
+
+  #nav.main {
+    margin: 0 auto;
+    float: none;
+    padding: 0.4em 0 0 0
+  }
+
+  .intro h2 {
+    font-size: 2.5em;
+    line-height: 1em;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    padding-right: 15px;
+    margin: 0 0 20px 0;
+  }
+
+  .intro p {
+    font-family: 'Oswald', "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.6em;
+    line-height: 1.2em;
+    letter-spacing: -2px;
+    padding-right: 20px;
+  }
+
+  .social {
+    text-align: center;
+    margin: 30px 0 15px 0;
+  }
+
+  .wrapper {
+    width: auto !important;
+    padding: 15px !important;
+  }
+} */

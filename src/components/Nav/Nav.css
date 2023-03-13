@@ -11,8 +11,8 @@
 #nav.main {
     float: right;
     text-align: center;
-    margin: 0.5em 0 0 0;
-    padding: 0.4em 0;
+    margin: 0.5em;
+    padding: 0.4em;
     font-family: 'Oswald', Arial, sans-serif;
 }
 
@@ -22,18 +22,18 @@
 }
 
 #nav.main a {
+    display: inline-block;
+    padding: 0.6em 1.2em;
     background-color: #EFEFEF;
     border-radius: 10px;
     border-right: 1px solid #bbb;
     border-bottom: 2px solid #bbb;
     color: #666;
-    display: inline-block;
-    font-size: 1.1em;
-    margin: 0 0 0.6em 0;
-    padding: 0.6em 1.2em;
     text-decoration: none;
     text-transform: uppercase;
     text-shadow: 1px 1px 1px #fff;
+    font-size: 1.1em;
+    margin: 0.6em;
 }
 
 #nav.main a:hover {
@@ -56,4 +56,67 @@
     color: #666;
     text-shadow: none;
     line-height: 8px;
+}
+
+/*------------------------------------*\
+	DROPDOWN
+\*------------------------------------*/
+/*
+Create a pure CSS dropdown.
+*/
+#nav.dropdown {
+    overflow: visible;
+}
+
+.dropdown li {
+    position: relative;
+}
+
+.dropdown a {
+    display: block;
+}
+
+.dropdown ul {
+    /* Set up the dropdown and hide it off-screen. */
+    list-style: none;
+    margin: 0;
+    position: absolute;
+    left: -99999px;
+    top: 100%;
+    background: #fff;
+    /* Adding a background makes the dropdown work properly in IE7+. Make this as close to your page's background as possible (i.e. white page == white background). */
+    background: rgba(255, 255, 255, 0);
+    /* But! Let's make the background fully transparent where we can, we don't actually want to see it if we can help it... */
+}
+
+.dropdown li:hover ul {
+    /* Bring the dropdown back onto screen when you hover its parent li. */
+    left: 0;
+}
+
+#nav.dropdown ul li {
+    /* Remove floats etc from dropdown list items. */
+    position: static;
+    float: none;
+}
+
+.dropdown ul a {
+    white-space: nowrap;
+    /* Stop the list items breaking. */
+}
+
+/*--- HOVER STYLES ---*/
+.dropdown li:hover a {
+    /* These create persistent hover states, meaning the top-most link stays hovered when your cursor has moved down the list. */
+    text-decoration: underline;
+}
+
+.dropdown li:hover ul a {
+    /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effect. */
+    text-decoration: none;
+}
+
+.dropdown ul li a:hover {
+    /* Here we define the most explicit hover states--what happens when you hover each individual link. */
+    text-decoration: underline;
 }

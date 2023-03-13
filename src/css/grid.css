@@ -3,7 +3,7 @@ Page container
 */
 .wrapper {
 	max-width: 1080px;
-	margin: 0 auto;
+	margin: 0;
 	padding: 1.5em 1em;
 }
 
@@ -16,11 +16,13 @@ We also allow you to use grid items as stand alone columns or in a series of col
 */
 .grids {
 	display: flex;
-	max-width: 1120px;
 	clear: both;
 	/* margin: 0 0 0 -2.679%; */
+	max-width: 1120px;
 	list-style: none;
 	/* So we can make grids out of lists. */
+	place-items: center;
+	padding: 10px;
 }
 
 /*
@@ -32,7 +34,7 @@ VALID: class="grid-4 text-centre"
 INVALID: class="left grid-4"
 */
 [class^="grid-"] {
-	float: left;
+	float: right;
 	margin: 0 2.679% 0 0;
 }
 

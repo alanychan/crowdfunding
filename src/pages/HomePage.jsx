@@ -47,14 +47,18 @@ function HomePage() {
 
 
   return (
-      <div>
-        <h1>Campaigns</h1>
-        <div id="project-list">
-          {projectList.map((project, key) => {
-            return <ProjectCard key={key} projectData={project} />;
-          })}
-        </div>
+    <>
+    <div>
+      <div className="intro">
+        <h2>Campaigns</h2>
       </div>
+      <div className="grids">
+        {projectList.map((project, key) => {
+          return <ProjectCard key={key} projectData={project} />;
+        })}
+      </div>
+    </div>
+    </>
   );
 }
 

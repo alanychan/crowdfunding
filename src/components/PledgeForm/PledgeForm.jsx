@@ -78,43 +78,35 @@ function PledgeForm(props) {
     };
 
     return (
-        <>
-        <div className="wrapper">
-          <div className="grids top">
-            <div className="grid-11 grid">
-                <form onSubmit={handleSubmit} className="form">
-                    <div className="label_pledge">
-                    <label htmlFor="amount">Amount</label>
-                    <input
-                        type="number" id="amount" placeholder="Enter amount"
-                        min="0" pattern="[0-9]*"
-                        onChange={handleChange}
-                    />
-                    </div>
-                    <div className="label_pledge">
-                    <label htmlFor="comment">Comment</label>
-                    <input
-                        type="text" id="comment" placeholder="Feel free to leave a comment..."
-                        onChange={handleChange}
-                    />
-                    </div>
-                    <div className="label_pledge">
-                        <label htmlFor="anonymous">Do you want to stay anonymous?:</label>
-                        <select
-                        type="select" id="anonymous"
-                        onChange={handleChange}>            
-                            <option value="false">No, thanks</option>;
-                            <option value="true">Yes, please</option>;
-                        </select>
-                    </div>
-                    <div className="login">
-                        <button type="submit">Submit Pledge</button>
-                    </div>
-                </form>
+        <form onSubmit={handleSubmit} className="form">
+            <div className="label_pledge">
+            <label htmlFor="amount">Amount</label>
+            <input
+                type="number" id="amount" placeholder="Enter amount"
+                min="0" pattern="[0-9]*"
+                onChange={handleChange}
+            />
             </div>
-        </div>
-    </div>
-    </>
+            <div className="label_pledge">
+            <label htmlFor="comment">Comment</label>
+            <input
+                type="text" id="comment" placeholder="Feel free to leave a comment..."
+                onChange={handleChange}
+            />
+            </div>
+            <div className="label_pledge">
+                <label htmlFor="anonymous">Do you want to stay anonymous?:</label>
+                <select
+                type="select" id="anonymous"
+                onChange={handleChange}>            
+                    <option value="false">No, thanks</option>;
+                    <option value="true">Yes, please</option>;
+                </select>
+            </div>
+            <div className="login">
+                <button type="submit">Submit Pledge</button>
+            </div>
+        </form>
     );
   };
   

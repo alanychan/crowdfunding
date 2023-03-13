@@ -7,7 +7,7 @@ function ProjectCard(props) {
     <>
     <div className="wrapper">
     <div className="grids top">
-      <div className="grid-13 grid">
+      <div className="grid-14 grid">
         <div className="slides">
             <img src={projectData.image} />
             <h2>{projectData.title}</h2>

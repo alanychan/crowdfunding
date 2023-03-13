@@ -5,9 +5,8 @@ label {
     margin: 10px;
 }
 
-input[type="number"],
-input[type="text"] {
-    background-color: #f1f1f1;
+input {
+    background-color: #f1f1f1b1;
     border: none;
     border-radius: 4px;
     font-size: 1em;
@@ -42,7 +41,14 @@ button {
     text-shadow: 1px 1px 1px #fff;
 }
 
-a:hover,
+a:hover {
+    background-color: #A5C100;
+    border-radius: 10px;
+    color: #EFEFEF;
+    padding: 8px;
+
+}
+
 button:hover {
     color: #666;
     text-shadow: 1px 1px 0px #fff;
@@ -65,11 +71,35 @@ button:hover {
 }
 
 .slides img {
-    /* display: block; */
+    display: inline-flex;
+    border-radius: 10px;
     margin: 0 auto;
     max-width: 100%;
+    max-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+.pledges {
+    background-color: #EAFFC4;
+    border-radius: 10px;
+    opacity: 0.8;
+    padding: 25px;
 }
 
 .label_pledge {
     padding: 10px;
 }
+
+/* 
+form {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+} */
