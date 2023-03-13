@@ -15,7 +15,8 @@ function Nav(props) {
                 <nav id="nav" className="main">
                     <ul>
                         <li><Link to="/" className="active">Home</Link></li>
-                        {!loggedIn && <li><Link to="/login">Login</Link></li>}
+                        {!loggedIn && <li><Link to="/login">Login</Link></li>}                        
+                        {!loggedIn && <li><Link to="/SignUp">Sign Up</Link></li>}
                         {loggedIn && <li><Link onClick={handleClick}>Sign Out</Link></li>}
                         <li><Link to="/admin">Admin Access (Not Active Yet) </Link></li>
                         {/* <Link to="/project">Project</Link> */}

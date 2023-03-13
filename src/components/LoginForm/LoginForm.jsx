@@ -75,7 +75,7 @@ function LoginForm() {
                 <span className="remember"> Remember Me</span> */}
                 {/* <input type="submit" name="login" value="login"/> */}
                 <button type="submit">Login</button>
-                <a href="signUp">Sign Up</a>
+                <button onclick="">Sign Up</button>
               </div>
             </form>
           </div>

@@ -28,8 +28,8 @@ select {
 button {
     background-color: #EFEFEF;
     border-radius: 10px;
-    border-right: 1px solid #bbb;
-    border-bottom: 2px solid #bbb;
+    /* border-right: 1px solid #bbb;
+    border-bottom: 2px solid #bbb; */
     color: #666;
     cursor: pointer;
     display: inline-block;
@@ -50,9 +50,9 @@ a:hover {
 }
 
 button:hover {
-    color: #666;
+    color: #1234EF;
     text-shadow: 1px 1px 0px #fff;
-    background-color: #EAFFC4;
+    background-color: #A5C100;
 }
 
 /*------------------------------------*\

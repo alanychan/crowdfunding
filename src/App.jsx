@@ -7,6 +7,8 @@ import ProjectPage from "./pages/ProjectPage";
 import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 
+import SignUpPage from "./pages/SignUpPage";
+
 // Components
 import Nav from "./components/Nav/Nav";
 
@@ -36,6 +38,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/login", element: <LoginPage /> },
+      { path: "/SignUp", element: <SignUpPage /> },
       { path: "/project/:id", element: <ProjectPage /> },
       { path: "/admin", element: <AdminPage /> },
     ],
