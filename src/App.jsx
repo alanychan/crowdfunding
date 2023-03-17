@@ -14,8 +14,6 @@ import Nav from "./components/Nav/Nav";
 
 //css
 import './App.css';
-import './css/styles.css';
-import './css/grid.css';
 
 //State
 import { useState } from "react";

@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
+import "./ProjectCard.css";
 
 function ProjectCard(props) {
   const { projectData } = props;
 
   return (
     <>
-    <div className="wrapper">
-    <div className="grids top">
-      <div className="grid-14 grid">
-        <div className="slides">
+    <div>
+        <div className="project-card">
             <img src={projectData.image} />
             <h2>{projectData.title}</h2>
             <p>{projectData.description}</p>
@@ -17,8 +16,6 @@ function ProjectCard(props) {
           </Link>
         </div>
       </div>
-    </div>
-    </div>
     </>
   );
 }

@@ -1,6 +1,7 @@
 // import { Link } from 'react-router-dom';
 import { useState } from "react";
 import { useNavigate, useParams, useOutletContext } from "react-router-dom";
+import "./PledgeForm.css";
 
 function PledgeForm(props) {
 
@@ -20,6 +21,8 @@ function PledgeForm(props) {
             anonymous: false,
             project: id,
         });
+
+    const [hasError, setHasError] = useState(false);
 
     //Hooks 
     const navigate = useNavigate();
@@ -52,12 +55,13 @@ function PledgeForm(props) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        
         if (loggedIn) {
             try {
                 if (pledge.amount) {
                     postData().then((response) =>{
                         console.log(response);
+                        // navigate("/");
                         // location.reload();
                     });                    
                 } else {
@@ -70,10 +74,9 @@ function PledgeForm(props) {
             
         } else {
             // redirect to login page
-            navigate(`/login`);
-            // return (
-            //     <Link to="/login">Please log in to pledge</Link>
-            // );
+            //navigate(`/login`);
+            // return (alert("Please log in to pledge"));
+            return setHasError(true);
         }
     };
 
@@ -104,10 +107,15 @@ function PledgeForm(props) {
                 </select>
             </div>
             <div className="login">
-                <button type="submit">Submit Pledge</button>
+                <button type="submit">Send</button>
+                {hasError  && <ErrorComponent></ErrorComponent>}
             </div>
         </form>
     );
   };
   
+  function ErrorComponent() {
+    return <p style={{color:"orange"}}>Please sign up or login to pledge, thank you!</p>
+  }
+
   export default PledgeForm;

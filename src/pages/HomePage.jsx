@@ -48,16 +48,11 @@ function HomePage() {
 
   return (
     <>
-    <div>
-      <div className="intro">
-        <h2>Campaigns</h2>
-      </div>
-      <div className="grids">
+      <div id="project-list">
         {projectList.map((project, key) => {
           return <ProjectCard key={key} projectData={project} />;
         })}
       </div>
-    </div>
     </>
   );
 }

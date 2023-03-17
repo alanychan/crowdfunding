@@ -1,122 +1,80 @@
-/*------------------------------------*\
-	TOP NAVIGATION
-\*------------------------------------*/
-.nav {
-    list-style: none;
-    margin: 0 0 1.5em 0;
-}
-
-/*Add a class of centred/centered to create a centred nav.*/
-
-#nav.main {
-    float: right;
-    text-align: center;
-    margin: 0.5em;
-    padding: 0.4em;
-    font-family: 'Oswald', Arial, sans-serif;
-}
-
-#nav.main li {
-    display: inline;
-    float: none;
-}
-
-#nav.main a {
-    display: inline-block;
-    padding: 0.6em 1.2em;
-    background-color: #EFEFEF;
-    border-radius: 10px;
-    border-right: 1px solid #bbb;
-    border-bottom: 2px solid #bbb;
-    color: #666;
-    text-decoration: none;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 1px #fff;
-    font-size: 1.1em;
-    margin: 0.6em;
-}
-
-#nav.main a:hover {
-    color: #666;
-    text-shadow: 1px 1px 0px #fff;
-    background-color: #EAFFC4;
-}
-
-#nav.main a.active {
-    color: #fff;
-    text-shadow: 1px 1px 1px #333;
-    font-weight: bold;
-    background-color: #A5C100;
-    letter-spacing: 1px;
-}
-
-#nav li span {
-    display: block;
-    font-size: 10px;
-    color: #666;
-    text-shadow: none;
-    line-height: 8px;
-}
-
-/*------------------------------------*\
-	DROPDOWN
-\*------------------------------------*/
-/*
-Create a pure CSS dropdown.
-*/
-#nav.dropdown {
-    overflow: visible;
-}
-
-.dropdown li {
-    position: relative;
-}
-
-.dropdown a {
-    display: block;
-}
-
-.dropdown ul {
-    /* Set up the dropdown and hide it off-screen. */
-    list-style: none;
+.navbar-nav {
+    background-color: #f3f3f3;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    list-style-type: none;
     margin: 0;
-    position: absolute;
-    left: -99999px;
-    top: 100%;
-    background: #fff;
-    /* Adding a background makes the dropdown work properly in IE7+. Make this as close to your page's background as possible (i.e. white page == white background). */
-    background: rgba(255, 255, 255, 0);
-    /* But! Let's make the background fully transparent where we can, we don't actually want to see it if we can help it... */
+    overflow: hidden;
+    padding: 0 20px 20px 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
 }
 
-.dropdown li:hover ul {
-    /* Bring the dropdown back onto screen when you hover its parent li. */
-    left: 0;
+.nav-item {
+    float: right;
 }
 
-#nav.dropdown ul li {
-    /* Remove floats etc from dropdown list items. */
-    position: static;
-    float: none;
-}
-
-.dropdown ul a {
-    white-space: nowrap;
-    /* Stop the list items breaking. */
-}
-
-/*--- HOVER STYLES ---*/
-.dropdown li:hover a {
-    /* These create persistent hover states, meaning the top-most link stays hovered when your cursor has moved down the list. */
-    text-decoration: underline;
-}
-
-.dropdown li:hover ul a {
-    /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effect. */
+.nav-item a {
+    color: #666;
+    display: block;
+    text-align: center;
+    margin-top: 16px;
+    padding: 1em;
     text-decoration: none;
 }
 
-.dropdown ul li a:hover {
-    /* Here we define the most explicit hover states--what happens when you hover each individual link. */
-    text-decoration: underline;
+.nav-item a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.nav-item a.active {
+    color: white;
+    background-color: #a8cf45;
+}
+
+
+header #logo {
+    position: fixed;
+    left: 0px;
+    margin-left: 20px;
+    /* top: 0px; */
+    z-index: 999;
+}
+
+@media all and (max-width: 800px) {
+    .navbar-nav {
+        justify-content: last baseline;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .navbar-nav {
+        flex-flow: column wrap;
+        padding: 0;
+        position: fixed;
+        top: 0px;
+        z-index: 999;
+    }
+
+    #logo {
+        top: 100px;
+        position: fixed;
+        margin: 25px;
+    }
+
+    .navbar-nav .nav-item a {
+        text-align: center;
+        margin: 0;
+        padding: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    }
+
+    .nav-item:last-of-type a {
+        border-bottom: none;
+    }
+
 }

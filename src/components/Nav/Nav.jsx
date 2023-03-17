@@ -11,18 +11,19 @@ function Nav(props) {
 
     return (
         <>
-            <div className="wrapper">
-                <nav id="nav" className="main">
-                    <ul>
-                        <li><Link to="/" className="active">Home</Link></li>
-                        {!loggedIn && <li><Link to="/login">Login</Link></li>}                        
-                        {!loggedIn && <li><Link to="/SignUp">Sign Up</Link></li>}
-                        {loggedIn && <li><Link onClick={handleClick}>Sign Out</Link></li>}
-                        <li><Link to="/admin">Admin Access (Not Active Yet) </Link></li>
-                        {/* <Link to="/project">Project</Link> */}
-                    </ul>
-                </nav>
-            </div>
+        <header>
+            <img id="logo" src="../Campaign_logo.svg"/>
+            <nav className="navbar">
+                <ul className="navbar-nav">
+                    <li className="nav-item"><Link to="/" className="active">Home</Link></li>
+                    {!loggedIn && <li className="nav-item"><Link to="/login">Login</Link></li>}                        
+                    {!loggedIn && <li className="nav-item"><Link to="/SignUp">Sign Up</Link></li>}
+                    {loggedIn && <li className="nav-item"><Link onClick={handleClick}>Sign Out</Link></li>}
+                    {/* <li className="nav-item"><Link to="/admin">Admin Access (Not Active Yet) </Link></li> */}
+                    {/* <Link to="/project">Project</Link> */}
+                </ul>
+            </nav>
+        </header>
         </>
     );
 }

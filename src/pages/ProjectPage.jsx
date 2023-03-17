@@ -58,19 +58,15 @@ function ProjectPage() {
 
   return (
     <>
-    <div className="wrapper">
-      <div className="grids top">
-      <div className="grid-9 grid">
-          <div className="slides">
-            <h2>{project.title}</h2>
-            <p>{project.description}</p>
-            <img src={project.image} />
-            <p>Project owner: {project.owner} on {date.toLocaleDateString(undefined, options)}</p>
-            {/* <h3>{`Status: ${project.is_open}`}</h3> */}
-          </div>
+    <div id="project">
+        <div id="project-card">
+          <h2>{project.title}</h2>
+          <p>{project.description}</p>
+          <img src={project.image} />
+          <p>Project owner: {project.owner} on {date.toLocaleDateString(undefined, options)}</p>
+          {/* <h3>{`Status: ${project.is_open}`}</h3> */}
         </div>
-        <div className="grid-9 grid">
-          <div className="pledges">
+        <div className="pledge-card">
             <h3>Pledges</h3>
             <p>Total to date: {project.total}</p>
             <ul>
@@ -83,10 +79,8 @@ function ProjectPage() {
               })}
             </ul>
             <PledgeForm projectId={project.id}/>
-          </div>
-        </div>
+          </div>        
       </div>
-    </div>
     </>
   );
 }

@@ -42,7 +42,7 @@ function SignUpForm() {
                 if (pledge.amount) {
                     postData().then((response) =>{
                         console.log(response);
-                        // location.reload();
+                        location.reload();
                     });                    
                 } else {
                     return (alert("Please enter an amount, thank you!"));

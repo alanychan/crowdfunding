@@ -1,180 +1,113 @@
-/*------------------------------------*\
-	MAIN
-\*------------------------------------*/
-html {
-
-  /* background: rgb(227,249,172);
-  background: radial-gradient(circle, rgba(227,249,172,1) 0%, rgba(165,193,0,1) 100%); */
-  color: #1234EF;
-  /*#5c5c5c; */
-  content: "";
-  background-image: url("../public/peek-a-boo-cow.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.85;
-  font-family: Arial, sans-serif;
-  font-size: calc(14px + 0.390625vw);
-}
-
-
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  line-height: 1.5em;
-  width: 100%;
-  display: table;
+  color: #666;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.wrapper {
-  /* display: flex;
-  flex-flow: row wrap; */
-  max-width: 1080px;
-  /* margin: 0 auto; */
-  padding: 1.5em 1em;
+#project-list {
+  display: inline-flex;
+  /* grid-template-columns: 30% 30% 30%; */
+  column-gap: 10px;
+  row-gap: 10px;
+  text-align: center;
 }
 
-/* .wrapper>* {
-  flex: 1 100%;
-} */
-
-#footer {
+a {
+  background-color: #a8cf45;
   border-radius: 10px;
-  background-color: #A5C100;
-  color: #fff;
-  padding: 10px 0;
+  color: #f5f5f5;
+  cursor: pointer;
+  padding: 8px;
+  text-decoration: none;
 }
 
-#footer p {
+a:hover {
+  background-color: #f5f5f5;
+  color: #a8cf45;
+  text-decoration: none;
+}
+
+form {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  color: #666;
+  margin: 18px;
+  min-height: 20px;
+  padding: 19px;
+  text-align: right;
+  width: 380px;
+}
+
+.label_pledge,
+.label {
+  height: 32px;
+  line-height: 18px;
+  padding: 6px;
   margin: 0;
-  padding: 10px 0;
 }
 
-/*------------------------------------*\
-	TYPE
-\*------------------------------------*/
-/* @font-face kit by Fonts2u (http://www.fonts2u.com/oswald.schriftart) */
-/* Font Oswald, SIL-licenced, author Vernon Adams */
-/* @font-face {
-  font-family: "Oswald";
-  src: url("Oswald.eot?") format("eot"), url("Oswald.woff") format("woff"), url("Oswald.ttf") format("truetype"), url("Oswald.svg#Oswald") format("svg");
-  font-weight: normal;
-  font-style: normal;
-} */
-/*--- HEADINGS ---*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: Arial, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  color: #A5C100;
-  text-shadow: 1px 1px 0px #6D8901;
-}
-
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.75em;
-  line-height: 1.5;
-}
-
-h2 {
-  font-size: 2.3em;
-  margin-bottom: 1em;
-  line-height: 1.4em;
-}
-
-h3 {
-  font-size: 2em;
-  margin-bottom: 1em;
-  line-height: 1.3;
-}
-
-h4 {
-  font-size: 1.5em;
-  margin-bottom: 0.8em;
-  line-height: auto;
-  text-shadow: none;
-  font-weight: bold;
-}
-
-h5 {
-  font-size: 1.3em;
-  margin-bottom: 0.6em;
-  text-shadow: none;
-  line-height: auto;
-}
-
-h6 {
-  font-size: 1.2em;
-  margin-bottom: 0.6em;
-  text-shadow: none;
-  line-height: auto;
-}
-
-.intro {
-  padding: 5px 0 0 20px;
-  color: #999;
-}
-
-.intro h2 {
-  font-size: 3em;
-  line-height: 1em;
-  letter-spacing: -1px;
-  text-transform: uppercase;
+.label_pledge>label,
+.label>label {
   padding-right: 15px;
-  margin: 0 0 20px 0;
 }
 
-.intro p {
-  font-family: 'Oswald', Arial, sans-serif;
-  font-size: 1.9em;
-  line-height: 1.2em;
-  letter-spacing: -2px;
-  padding-right: 15px;
+.label_pledge>input,
+.label>input {
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  vertical-align: middle;
+  height: 25px;
+  width: 200px;
+}
+
+.label_pledge>select {
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  color: #555555;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.login {
+  margin: 10px;
+}
+
+.login>button {
+  background-color: #a8cf45;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 5px 10px 5px;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.login>button:hover {
+  background-color: #cccccc;
+  border: 1px solid #cccccc;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 5px 10px 5px;
+  vertical-align: middle;
+  margin: 0;
 }
 
 /* 
-@media (min-width: 721px) and (max-width: 960px) {
-  #logo {
-    margin: 0 auto 1em;
+@media all and (max-width: 800px) {
+  #project-list {
+    flex-direction: column;
+    margin-top: 100px;
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 600px) {
+  #project-list {
+    flex-flow: column wrap;
+    margin-top: 100px;
     width: 100%;
   }
 
-  #nav.main {
-    margin: 0 auto;
-    float: none;
-    padding: 0.4em 0 0 0
-  }
-
-  .intro h2 {
-    font-size: 2.5em;
-    line-height: 1em;
-    letter-spacing: -1px;
-    text-transform: uppercase;
-    padding-right: 15px;
-    margin: 0 0 20px 0;
-  }
-
-  .intro p {
-    font-family: 'Oswald', "Helvetica Neue", Arial, sans-serif;
-    font-size: 1.6em;
-    line-height: 1.2em;
-    letter-spacing: -2px;
-    padding-right: 20px;
-  }
-
-  .social {
-    text-align: center;
-    margin: 30px 0 15px 0;
-  }
-
-  .wrapper {
-    width: auto !important;
-    padding: 15px !important;
-  }
 } */
