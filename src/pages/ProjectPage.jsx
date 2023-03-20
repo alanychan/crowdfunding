@@ -25,6 +25,9 @@ function ProjectPage() {
   //   });
   // }, []);
 
+  const [state, setState] = useState(false);
+   
+
   const capitalizeFirstLowercaseRest = str => {
     return (
       str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
@@ -78,7 +81,7 @@ function ProjectPage() {
                 );
               })}
             </ul>
-            <PledgeForm projectId={project.id}/>
+            <PledgeForm projectId={project.id} setState={false}/>
           </div>        
       </div>
     </>

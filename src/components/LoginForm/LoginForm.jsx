@@ -48,12 +48,14 @@ function LoginForm() {
             window.localStorage.setItem("token", token); // key + value
             setLoggedIn(true);
             navigate("/");
+        } else {
+          setLoggedIn(false);
         }
     };
 
     return (
       <>
-          <div cclassName="form">
+          <div className="form">
             <h2>Member Login</h2>
             <form onSubmit={handleSubmit} className="form">
               <div className="label">
@@ -73,7 +75,7 @@ function LoginForm() {
                 <span className="remember"> Remember Me</span> */}
                 {/* <input type="submit" name="login" value="login"/> */}
                 <button type="submit">Login</button>
-                <button id="sign-up" onclick="">Sign Up</button>
+                <button id="sign-up" onClick={event =>  window.location.href='/SignUp'}>Sign Up</button>
               </div>
             </form>
           </div>

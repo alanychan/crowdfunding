@@ -1,9 +1,9 @@
 // import { Link } from 'react-router-dom';
-import { useState } from "react";
+import { useState, useContext, createContext } from "react";
 import { useNavigate, useParams, useOutletContext } from "react-router-dom";
 import "./PledgeForm.css";
 
-function PledgeForm(props) {
+function PledgeForm(props, getState) {
 
     //Actions
     const { id }  = useParams(); 
@@ -23,6 +23,8 @@ function PledgeForm(props) {
         });
 
     const [hasError, setHasError] = useState(false);
+
+    // const { State } = getState;
 
     //Hooks 
     const navigate = useNavigate();
@@ -62,7 +64,8 @@ function PledgeForm(props) {
                     postData().then((response) =>{
                         console.log(response);
                         // navigate("/");
-                        // location.reload();
+                        window.location.reload();
+                       
                     });                    
                 } else {
                     return (alert("Please enter an amount, thank you!"));
