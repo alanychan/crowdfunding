@@ -4,91 +4,132 @@ import { useNavigate, useParams, useOutletContext } from "react-router-dom";
 
 function SignUpForm() {
 
-    const [pledge, setPledge] = useState({
-            amount: null,
-            comment: "",
-            anonymous: false,
-            project: null,
+    const [users, setUsers] = useState({
+            first_name: "",
+            last_name: "",
+            username: "",
+            email: "",
+            password: "",
+            bio: null,
+            location: null,
+            photo_meme: null,
         });
+
+    const [error, setError] = useState(null);
+    const [email, setEmail] = useState('');
+    
+    function isValidEmail(email) {
+      return /\S+@\S+\.\S+/.test(email);
+    }
 
     //Hooks 
     const navigate = useNavigate();
     
    
     const handleChange = (event) => {
-        const { id, value} = event.target;
+      const { id, value} = event.target;
 
-    };
+      setEmail(event.target.value);
 
-    const postData = async () => {
+      setUsers((prevUsers) => ({
+          ...prevUsers,
+          [id]: value,
+      }));
+  };
 
-        const response = await fetch(
-            `${import.meta.env.VITE_API_URL}pledges/`,
-            {
-                method: "post",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                
-            }
-        );
-        return response.json();
-    };
+  const postData = async () => {
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+      const response = await fetch(
+          `${import.meta.env.VITE_API_URL}users/`,
+          {
+              method: "post",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify({users}),
+          }
+      );
+      return response.json();
+  };
 
-            try {
-                if (pledge.amount) {
-                    postData().then((response) =>{
-                        console.log(response);
-                        location.reload();
-                    });                    
-                } else {
-                    return (alert("Please enter an amount, thank you!"));
-                }
-            } catch (err) {
-                console.error(err);
-                alert(`Error: ${err.message}`);
-            };
-            
-    };
+  const handleSubmit = async (event) => {
+      event.preventDefault();
+
+      setError(null);
+      
+      if (isValidEmail(email)) {
+        console.log('The email is valid');
+      } else {
+        setError('Email is invalid');
+      };
+
+      
+      try {
+        if (users.first_name && users.last_name && users.username && users.email && users.password) {
+              postData().then((response) =>{
+                  console.log(response);
+                  // navigate("/");
+                  window.location.reload();
+                  
+              });                    
+          } else {
+              setError("Please fill out all the fields marked with *, thank you!");
+          }
+      } catch (err) {
+          console.error(err);
+          alert(`Error: ${err.message}`);
+      };
+          
+  };
 
     return (
         <>
-        <div className="wrapper">
-          <div className="grids top">
-            <div className="grid-6 grid">
+        <div className="form-container">
               <h2>Member Sign Up</h2>
               <form onSubmit={handleSubmit} className="form">
+              <div className="label">
+                  <label htmlFor="firstname">First Name *</label>
+                  <input
+                    type="text" id="firstname" className="textfield"
+                    onChange={handleChange}/>
+                </div>
                 <div className="label">
-                  <label htmlFor="username">Username:</label>
+                  <label htmlFor="lastname">Last Name *</label>
+                  <input
+                    type="text" id="lastname" className="textfield"
+                    onChange={handleChange}/>
+                </div>
+                <div className="label">
+                  <label htmlFor="username">Username *</label>
                   <input
                     type="text" id="username" className="textfield"
                     onChange={handleChange}/>
                 </div>
                 <div className="label">
-                  <label htmlFor="firstname">First Name:</label>
+                  <label htmlFor="email">Email *</label>
                   <input
-                    type="text" id="firstname" className="textfield"
+                    type="text" id="email" className="textfield"
                     onChange={handleChange}/>
                 </div>
+                
                 <div className="label">    
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">Password *</label>
                   <input
                     type="password" id="password" placeholder="Password" className="textfield" 
                     onChange={handleChange}/>
                 </div>
                 <div className="login">
                   <button type="submit">Sign Up</button>
+                  {error  && <ErrorComponent></ErrorComponent>}
                 </div>
               </form>
             </div>
-          </div>
-        </div>
         </>
       );
+}
 
+function ErrorComponent() {
+  return <p className="error_message">Please fill out all the fields marked with *, thank you!</p>
 }
 
 export default SignUpForm;

@@ -13,6 +13,7 @@ function LoginForm() {
     });
 
     console.log(credentials);
+    const [error, setError] = useState(null);
 
     //Hooks 
     const navigate = useNavigate();
@@ -43,11 +44,17 @@ function LoginForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setError(null);
+
         if (credentials.username && credentials.password) {
             const { token } = await postData();
-            window.localStorage.setItem("token", token); // key + value
+            if (!token){
+                setError(true);
+            }
+            else {window.localStorage.setItem("token", token); // key + value
             setLoggedIn(true);
-            navigate("/");
+            navigate("/");}
+
         } else {
           setLoggedIn(false);
         }
@@ -55,7 +62,7 @@ function LoginForm() {
 
     return (
       <>
-          <div className="form">
+          <div className="form-container">
             <h2>Member Login</h2>
             <form onSubmit={handleSubmit} className="form">
               <div className="label">
@@ -76,11 +83,17 @@ function LoginForm() {
                 {/* <input type="submit" name="login" value="login"/> */}
                 <button type="submit">Login</button>
                 <button id="sign-up" onClick={event =>  window.location.href='/SignUp'}>Sign Up</button>
+                
+                {error  && <ErrorComponent></ErrorComponent>}
               </div>
             </form>
           </div>
       </>
     );
   }
-  
+
+  function ErrorComponent() {
+    return <p className="error_message">Sorry, your account does not exist, please retry or sign up, thank you!</p>
+  }
+
   export default LoginForm;

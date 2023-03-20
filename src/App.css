@@ -1,6 +1,7 @@
 body {
   color: #666;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Comic Sans MS", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 80px 0 0 0;
 }
 
 #project-list {
@@ -13,10 +14,10 @@ body {
 
 a {
   background-color: #a8cf45;
-  border-radius: 10px;
+  border-radius: 16px;
   color: #f5f5f5;
   cursor: pointer;
-  padding: 8px;
+  padding: 6px 10px;
   text-decoration: none;
 }
 
@@ -24,6 +25,16 @@ a:hover {
   background-color: #f5f5f5;
   color: #a8cf45;
   text-decoration: none;
+}
+
+.form-container {
+  margin: 20px;
+  padding: 20px;
+  width: auto;
+}
+
+.form-container>h2 {
+  padding: 0 0 0 20px;
 }
 
 form {
@@ -94,8 +105,15 @@ form {
   margin: 0;
 }
 
-/* 
-@media all and (max-width: 800px) {
+.error_message {
+  color: #ff4800;
+  font-size: 12px;
+  font-weight: bold;
+
+}
+
+
+/* @media all and (max-width: 800px) {
   #project-list {
     flex-direction: column;
     margin-top: 100px;
@@ -106,7 +124,7 @@ form {
 @media all and (max-width: 600px) {
   #project-list {
     flex-flow: column wrap;
-    margin-top: 100px;
+    margin-top: 20px;
     width: 100%;
   }
 

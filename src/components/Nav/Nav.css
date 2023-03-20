@@ -1,27 +1,35 @@
-.navbar-nav {
+.navbar {
     background-color: #f3f3f3;
+    overflow: hidden;
+    padding: 5px 0 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar-nav {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-end;
     list-style-type: none;
-    margin: 0;
-    overflow: hidden;
-    padding: 0 20px 20px 0;
-    top: 0;
-    width: 100%;
+    margin: 5px;
+    /* padding: 10px 20px 10px 0; */
     z-index: -1;
 }
 
 .nav-item {
+    display: block;
     float: right;
+    padding: 0 1px;
+    text-align: center;
 }
 
 .nav-item a {
     color: #666;
     display: block;
     text-align: center;
-    margin-top: 16px;
-    padding: 1em;
+    margin-top: 10px;
+    padding: 10px;
     text-decoration: none;
 }
 
@@ -35,46 +43,93 @@
 }
 
 
-header #logo {
+.logo {
     position: fixed;
-    left: 0px;
-    margin-left: 20px;
+    margin: 0 0 0 20px;
+    height: 60px;
     /* top: 0px; */
     z-index: 999;
 }
 
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky+.content {
+    padding-top: 60px;
+}
+
+/* For mobile phones: */
+/* [class*="nav"] {
+    width: 100%;
+} */
+
 @media all and (max-width: 800px) {
     .navbar-nav {
         justify-content: last baseline;
+        margin: 10px;
     }
 }
 
 @media all and (max-width: 600px) {
-    .navbar-nav {
-        flex-flow: column wrap;
-        padding: 0;
+    .logo {
+        height: 50px;
+    }
+
+    .navbar {
+        /* display: flex; */
         position: fixed;
+    }
+
+    .navbar-nav {
+        flex-flow: row wrap;
+        margin: 0;
+        padding: 0;
         top: 0px;
         z-index: 999;
     }
 
-    #logo {
-        top: 100px;
-        position: fixed;
-        margin: 25px;
-    }
-
-    .navbar-nav .nav-item a {
+    .navbar-nav .nav-item {
         text-align: center;
+        display: block;
+        float: right;
         margin: 0;
-        padding: 10px;
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-
+        /* padding: 10px; */
+        /* border-top: 1px solid rgba(255, 255, 255, 0.3);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
     }
 
     .nav-item:last-of-type a {
         border-bottom: none;
+    }
+
+}
+
+
+
+@media all and (max-width: 500px) {
+
+    .logo {
+        height: 50px;
+    }
+
+    .navbar {
+        display: flex;
+    }
+
+    .navbar>img {
+        align-content: center;
+    }
+
+    .navbar-nav {
+        flex-flow: row wrap;
+        position: sticky;
+        margin-top: 50px;
+        width: 100%;
     }
 
 }

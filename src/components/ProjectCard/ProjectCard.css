@@ -4,6 +4,7 @@
     padding: 25px;
     margin: 25px;
     height: 85%;
+    width: 600px;
     flex-direction: row;
 }
 
@@ -11,4 +12,22 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+}
+
+@media all and (max-width: 800px) {
+    #project-list {
+        flex-direction: column;
+        margin: 0;
+    }
+}
+
+
+@media all and (max-width: 600px) {
+    #project-list {
+        margin-top: 40px;
+    }
+
+    .project-card {
+        width: fit-content;
+    }
 }

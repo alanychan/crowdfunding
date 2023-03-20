@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./Nav.css";
 
 function Nav(props) {
-    const { loggedIn, setLoggedIn } = props;
+    const { loggedIn, setLoggedIn, myLogo } = props;
 
     const handleClick = () => {
         window.localStorage.removeItem("token");
@@ -12,8 +12,9 @@ function Nav(props) {
     return (
         <>
         <header>
-            <img id="logo" src="../Campaign_logo.svg"/>
+            <div>
             <nav className="navbar">
+            <img src={myLogo} className="logo"/>
                 <ul className="navbar-nav">
                     <li className="nav-item"><Link to="/" className="active">Home</Link></li>
                     {!loggedIn && <li className="nav-item"><Link to="/login">Login</Link></li>}                        
@@ -23,6 +24,7 @@ function Nav(props) {
                     {/* <Link to="/project">Project</Link> */}
                 </ul>
             </nav>
+            </div>
         </header>
         </>
     );

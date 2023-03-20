@@ -17,7 +17,7 @@ function PledgeForm(props, getState) {
 
     const [pledge, setPledge] = useState({
             amount: null,
-            comment: "",
+            comment: " ",
             anonymous: false,
             project: id,
         });
@@ -110,7 +110,7 @@ function PledgeForm(props, getState) {
                 </select>
             </div>
             <div className="login">
-                <button type="submit">Send</button>
+                <button type="submit">Pledge Now</button>
                 {hasError  && <ErrorComponent></ErrorComponent>}
             </div>
         </form>
@@ -118,7 +118,7 @@ function PledgeForm(props, getState) {
   };
   
   function ErrorComponent() {
-    return <p style={{color:"orange"}}>Please sign up or login to pledge, thank you!</p>
+    return <p className="error_message">Please sign up or login to pledge, thank you!</p>
   }
 
   export default PledgeForm;

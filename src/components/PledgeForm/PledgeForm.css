@@ -11,7 +11,7 @@
     box-shadow: 0px 0px 5px gray;
     padding: 5px 20px;
     margin: 15px;
-    width: 70%;
+    width: 50%;
 }
 
 #project-card>h2 {
@@ -28,6 +28,7 @@
     /* background-color: #f2f3f5; */
     margin: 20px;
     padding: 20px;
+
 }
 
 .pledge-card>h3 {
@@ -37,17 +38,21 @@
 @media all and (max-width: 800px) {
     #project {
         flex-direction: column;
-        margin-top: 130px;
+        margin: 0;
+    }
+    
+    #project-card {
+        margin: 10px;
+        width: 100%;
     }
 }
 
-
 @media all and (max-width: 600px) {
     #project {
-        margin-top: 130px;
+        margin-top: 120px;
     }
 
-    .project-card {
-        width: auto;
+    #project-card {
+        width: 100%;
     }
 }

@@ -6,7 +6,6 @@ function ProjectCard(props) {
 
   return (
     <>
-    <div>
         <div className="project-card">
             <img src={projectData.image} />
             <h2>{projectData.title}</h2>
@@ -15,7 +14,6 @@ function ProjectCard(props) {
             Click here to pledge your support
           </Link>
         </div>
-      </div>
     </>
   );
 }
