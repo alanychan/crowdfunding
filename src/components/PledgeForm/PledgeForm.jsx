@@ -28,8 +28,18 @@ function PledgeForm(props, getState) {
 
     //Hooks 
     const navigate = useNavigate();
-    
-   
+
+    // const navigateToSignUp = () => {
+    //     // 👇️ navigate to /signUp
+    //     navigate('/signup');
+    //   };
+  
+    // const navigateToLogin = () => {
+    // // 👇️ navigate to /login
+    // navigate('/login');
+    // };
+  
+
     const handleChange = (event) => {
         const { id, value} = event.target;
         
@@ -118,7 +128,19 @@ function PledgeForm(props, getState) {
   };
   
   function ErrorComponent() {
-    return <p className="error_message">Please sign up or login to pledge, thank you!</p>
+    const navigate = useNavigate();
+    const navigateToSignUp = () => {
+        // 👇️ navigate to /signUp
+        navigate('/signup');
+      };
+  
+    const navigateToLogin = () => {
+    // 👇️ navigate to /login
+    navigate('/login');
+    };
+  
+    
+    return <p className="error_message">Please <button id="sign-up" onClick={navigateToSignUp}>Sign Up</button> or <button id="sign-up" onClick={navigateToLogin}>Login</button> to pledge, thank you!</p>
   }
 
   export default PledgeForm;

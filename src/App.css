@@ -82,7 +82,8 @@ form {
   margin: 10px;
 }
 
-.login>button {
+.login>button,
+#sign-up {
   background-color: #a8cf45;
   border: 1px solid #cccccc;
   border-radius: 8px;
@@ -94,7 +95,8 @@ form {
   margin: 0;
 }
 
-.login>button:hover {
+.login>button:hover,
+#sign-up:hover {
   background-color: #cccccc;
   border: 1px solid #cccccc;
   color: #fff;

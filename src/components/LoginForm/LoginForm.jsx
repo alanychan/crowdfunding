@@ -17,6 +17,11 @@ function LoginForm() {
 
     //Hooks 
     const navigate = useNavigate();
+    const navigateToSignUp = () => {
+      // 👇️ navigate to /signUp
+      navigate('/signup');
+    };
+  
     
     //Actions
     const handleChange = (event) => {
@@ -57,6 +62,7 @@ function LoginForm() {
 
         } else {
           setLoggedIn(false);
+          setError(true)
         }
     };
 
@@ -82,7 +88,7 @@ function LoginForm() {
                 <span className="remember"> Remember Me</span> */}
                 {/* <input type="submit" name="login" value="login"/> */}
                 <button type="submit">Login</button>
-                <button id="sign-up" onClick={event =>  window.location.href='/SignUp'}>Sign Up</button>
+                <button id="sign-up" onClick={navigateToSignUp}>Sign Up</button>
                 
                 {error  && <ErrorComponent></ErrorComponent>}
               </div>

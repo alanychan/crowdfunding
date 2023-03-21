@@ -43,10 +43,11 @@
 }
 
 
-.logo {
+#logo {
     position: fixed;
     margin: 0 0 0 20px;
     height: 60px;
+    text-decoration: none;
     /* top: 0px; */
     z-index: 999;
 }
@@ -112,12 +113,12 @@
 .repo {
     background:
         linear-gradient(to right,
-            rgba(100, 200, 200, 1),
-            rgba(100, 200, 200, 1)),
+            #64c8c8,
+            #64c8c8),
         linear-gradient(to right,
-            rgba(255, 0, 0, 1),
-            rgba(255, 0, 180, 1),
-            rgba(0, 100, 200, 1));
+            #ff0000,
+            #ff00b4,
+            #0064c8);
     background-size: 100% 3px, 0 3px;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;

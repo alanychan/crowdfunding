@@ -24,7 +24,11 @@ function SignUpForm() {
 
     //Hooks 
     const navigate = useNavigate();
-    
+    const navigateToLogin = () => {
+      // 👇️ navigate to /login
+      navigate('/login');
+    };
+  
    
     const handleChange = (event) => {
       const { id, value} = event.target;
@@ -56,15 +60,15 @@ function SignUpForm() {
       event.preventDefault();
 
       setError(null);
-      
-      if (isValidEmail(email)) {
-        console.log('The email is valid');
-      } else {
-        setError('Email is invalid');
-      };
-
-      
+            
       try {
+            
+          if (isValidEmail(email)) {
+            console.log('The email is valid');
+          } else {
+            setError('Email is invalid');
+          };
+
         if (users.first_name && users.last_name && users.username && users.email && users.password) {
               postData().then((response) =>{
                   console.log(response);
@@ -120,6 +124,7 @@ function SignUpForm() {
                 </div>
                 <div className="login">
                   <button type="submit">Sign Up</button>
+                  <button id="sign-up" onClick={navigateToLogin}>Login</button>
                   {error  && <ErrorComponent></ErrorComponent>}
                 </div>
               </form>

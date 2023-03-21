@@ -14,7 +14,7 @@ function Nav(props) {
         <header>
             <div>
             <nav className="navbar">
-            <img src={myLogo} className="logo"/>
+            <img src={myLogo} id="logo"/>
                 <ul className="navbar-nav">
                     <li className="nav-item"><Link to="/" className="active">Home</Link></li>
                     {!loggedIn && <li className="nav-item"><Link to="/login">Login</Link></li>}                        
@@ -25,7 +25,7 @@ function Nav(props) {
                     </ul>
             </nav>
             </div>
-            <div><a className="repo" href={"https://github.com/alanychan/crowdfunding"} target={"_blank"}>Link to repo</a></div>
+            <div><Link className="repo" to={"https://github.com/alanychan/crowdfunding"} target={"_blank"}>Link to repo</Link></div>
         </header>
         </>
     );
