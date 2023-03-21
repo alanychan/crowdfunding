@@ -22,9 +22,10 @@ function Nav(props) {
                     {loggedIn && <li className="nav-item"><Link onClick={handleClick}>Sign Out</Link></li>}
                     {/* <li className="nav-item"><Link to="/admin">Admin Access (Not Active Yet) </Link></li> */}
                     {/* <Link to="/project">Project</Link> */}
-                </ul>
+                    </ul>
             </nav>
             </div>
+            <div><a className="repo" href={"https://github.com/alanychan/crowdfunding"} target={"_blank"}>Link to repo</a></div>
         </header>
         </>
     );
