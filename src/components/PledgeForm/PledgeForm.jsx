@@ -114,7 +114,7 @@ function PledgeForm(props, getState) {
                 onChange={handleChange}
             />
             </div>
-            <div id="label_pledge" >
+            <div className="label_pledge" >
             <label htmlFor="comment">Comment *</label>
             <textarea 
                 id="comment" rows={3} cols={30} placeholder="Sorry, you have to leave a joke & make my day! Moo-dy"

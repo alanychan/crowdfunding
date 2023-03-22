@@ -26,13 +26,27 @@
 
 .pledge-card {
     /* background-color: #f2f3f5; */
-    margin: 20px;
+    margin: 0 20px;
     padding: 20px;
-
 }
 
 .pledge-card>h3 {
     color: #a8cf45;
+}
+
+.pledge-card h3>span {
+    color: #666;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+}
+
+.pledge-card ul {
+    list-style-type: '* ';
+    margin: 0;
+    padding: 0 0 0 10px;
 }
 
 @media all and (max-width: 800px) {
@@ -40,7 +54,7 @@
         flex-direction: column;
         margin: 0;
     }
-    
+
     #project-card {
         margin: 10px;
         width: 100%;

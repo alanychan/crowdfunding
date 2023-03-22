@@ -56,7 +56,7 @@ function ProjectPage() {
 
   const date = new Date(project.date_created);
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  
+
   // console.log(projectData.pledges)
 
   return (
@@ -70,18 +70,21 @@ function ProjectPage() {
           {/* <h3>{`Status: ${project.is_open}`}</h3> */}
         </div>
         <div className="pledge-card">
-            <h3>Pledges</h3>
-            <p>Total to date: {project.total}</p>
+            <h3>Pledges to date: <span>${project.total}</span></h3>            
+            <PledgeForm projectId={project.id} setState={false}/>
             <ul>
               {project.pledges.map((pledgeData, key) => {
                 return (
                   <li key={key}>
-                  {pledgeData.amount} from  {capitalizeFirst(pledgeData.supporter ? pledgeData.supporter : "Anonymous")}
+                  <div className="pledge_details">${pledgeData.amount}. {capitalizeFirst(pledgeData.supporter ? pledgeData.supporter : "Anonymous")} commented
+                    <span>
+                       "{pledgeData.comment}"
+                    </span>
+                  </div>
                   </li>
                 );
               })}
             </ul>
-            <PledgeForm projectId={project.id} setState={false}/>
           </div>        
       </div>
     </>
