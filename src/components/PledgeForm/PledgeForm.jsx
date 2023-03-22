@@ -17,10 +17,13 @@ function PledgeForm(props, getState) {
 
     const [pledge, setPledge] = useState({
             amount: null,
-            comment: " ",
+            comment: "",
             anonymous: false,
             project: id,
         });
+
+        
+    const isValid = Boolean(pledge.amount && pledge.comment);
 
     const [hasError, setHasError] = useState(false);
 
@@ -69,22 +72,30 @@ function PledgeForm(props, getState) {
         event.preventDefault();
         
         if (loggedIn) {
-            try {
-                if (pledge.amount) {
-                    postData().then((response) =>{
-                        console.log(response);
-                        // navigate("/");
-                        window.location.reload();
-                       
-                    });                    
-                } else {
-                    return (alert("Please enter an amount, thank you!"));
-                }
-            } catch (err) {
-                console.error(err);
-                alert(`Error: ${err.message}`);
-            };
-            
+            if (isValid) {
+                try {
+                        postData().then((response) =>{
+                            console.log(response);
+                            window.location.reload();
+                        });
+
+                    // if (pledge.amount && pledge.comment) {
+                    //     postData().then((response) =>{
+                    //         console.log(response);
+                    //         // navigate("/");
+                    //         window.location.reload();
+                        
+                    //     });                    
+                    // } else {
+                    //     isValid=false;
+                    //     // return setHasError(true);
+                    //     // return (alert("Please enter an amount, thank you!"));
+                    // }
+                    } catch (err) {
+                        console.error(err);
+                        alert(`Error: ${err.message}`);
+                    };
+                };
         } else {
             // redirect to login page
             //navigate(`/login`);
@@ -96,31 +107,34 @@ function PledgeForm(props, getState) {
     return (
         <form onSubmit={handleSubmit} className="form">
             <div className="label_pledge">
-            <label htmlFor="amount">Amount</label>
+            <label htmlFor="amount">Amount *</label>
             <input
                 type="number" id="amount" placeholder="Enter amount"
                 min="0" pattern="[0-9]*"
                 onChange={handleChange}
             />
             </div>
-            <div className="label_pledge">
-            <label htmlFor="comment">Comment</label>
-            <input
-                type="text" id="comment" placeholder="Feel free to leave a comment..."
+            <div id="label_pledge" >
+            <label htmlFor="comment">Comment *</label>
+            <textarea 
+                id="comment" rows={3} cols={30} placeholder="Sorry, you have to leave a joke & make my day! Moo-dy"
                 onChange={handleChange}
             />
             </div>
             <div className="label_pledge">
-                <label htmlFor="anonymous">Do you want to stay anonymous?:</label>
+                <label htmlFor="anonymous">Do you want to stay anonymous? *</label>
                 <select
                 type="select" id="anonymous"
                 onChange={handleChange}>            
-                    <option value="false">No, thanks</option>;
-                    <option value="true">Yes, please</option>;
+                    <option value="false">Moo Moo, no</option>;
+                    <option value="true">Moo Moo, yes</option>;
                 </select>
             </div>
-            <div className="login">
-                <button type="submit">Pledge Now</button>
+            <div  className="label_pledge">
+                <button id={`${isValid ? "sign-up" : ""}`}
+                type="submit" 
+                disabled={!isValid}
+                title={isValid ? "Pledge Now" : "All fields must be filled out."}>Pledge Now</button>
                 {hasError  && <ErrorComponent></ErrorComponent>}
             </div>
         </form>
@@ -128,6 +142,7 @@ function PledgeForm(props, getState) {
   };
   
   function ErrorComponent() {
+
     const navigate = useNavigate();
     const navigateToSignUp = () => {
         // 👇️ navigate to /signUp
@@ -138,9 +153,9 @@ function PledgeForm(props, getState) {
     // 👇️ navigate to /login
     navigate('/login');
     };
-  
-    
+        
     return <p className="error_message">Please <button id="sign-up" onClick={navigateToSignUp}>Sign Up</button> or <button id="sign-up" onClick={navigateToLogin}>Login</button> to pledge, thank you!</p>
+      
   }
 
   export default PledgeForm;
