@@ -123,8 +123,9 @@
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
     color: #666;
-    float: right;
+    /* float: right; */
     font-size: smaller;
+    margin: 20px;
     transition: background-size 400ms;
 }
 
@@ -151,6 +152,10 @@
         position: sticky;
         margin-top: 50px;
         width: 100%;
+    }
+
+    .repo {
+        position: relative;
     }
 
 }

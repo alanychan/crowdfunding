@@ -10,7 +10,7 @@
 
 .project-card img {
     width: 100%;
-    height: auto;
+    height: 300px;
     object-fit: cover;
 }
 
@@ -24,6 +24,7 @@
 
 @media all and (max-width: 600px) {
     #project-list {
+        height: 100%;
         margin-top: 40px;
     }
 
